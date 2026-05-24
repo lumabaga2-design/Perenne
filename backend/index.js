@@ -1,0 +1,46 @@
+require('dotenv').config();
+const express = require('express');
+const cors    = require('cors');
+
+//  importación de las rutas de cada módulo 
+const customerRoutes = require('./modules/customers/customer.routes');
+const userRoutes     = require('./modules/users/user.routes');
+const contentRoutes  = require('./modules/content/content.routes');
+const productRoutes  = require('./modules/products/product.routes');
+const feedRoutes     = require('./modules/feed/feed.routes');
+const cartRoutes     = require('./modules/cart/cart.routes');
+const paymentRoutes = require('./modules/payments/payment.routes');
+
+
+const app = express();
+
+
+app.use(cors());          // Permite peticiones desde el frontend
+app.use(express.json());  // Permite recibir datos en formato JSON
+
+//  Rutas 
+app.use('/api/customers', customerRoutes);
+app.use('/api/users',     userRoutes);
+app.use('/api/content',   contentRoutes);
+app.use('/api/products',  productRoutes);
+app.use('/api/feed',      feedRoutes);
+app.use('/api/cart',      cartRoutes);
+app.use('/api/payments', paymentRoutes);
+
+//  Inicio del servidor 
+
+app.get('/api/test', async (req, res) => {
+  try {
+    const db = require('./config/db');
+    await db.execute('SELECT 1');
+    res.status(200).json({ message: '✅ Servidor y base de datos conectados correctamente' });
+  } catch (error) {
+    res.status(500).json({ message: '❌ Error de conexión', error: error.message });
+  }
+});
+
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
+
+app.listen(SERVER_PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${SERVER_PORT}`);
+});
