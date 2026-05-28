@@ -10,6 +10,12 @@ const productRoutes  = require('./modules/products/product.routes');
 const feedRoutes     = require('./modules/feed/feed.routes');
 const cartRoutes     = require('./modules/cart/cart.routes');
 const paymentRoutes = require('./modules/payments/payment.routes');
+const shipmentRoutes = require('./modules/shipments/shipment.routes');
+const interactionRoutes = require('./modules/interactions/interaction.routes');
+const searchRoutes = require('./modules/search/search.routes');
+const notificationRoutes = require('./modules/notifications/notification.routes');
+const settingsRoutes = require('./modules/settings/settings.routes');
+
 
 
 const app = express();
@@ -26,6 +32,12 @@ app.use('/api/products',  productRoutes);
 app.use('/api/feed',      feedRoutes);
 app.use('/api/cart',      cartRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/shipments', shipmentRoutes);
+app.use('/api/interactions', interactionRoutes);
+app.use('/api/search', searchRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/settings', settingsRoutes);
+
 
 //  Inicio del servidor 
 
