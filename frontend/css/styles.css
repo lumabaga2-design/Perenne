@@ -1,0 +1,296 @@
+<style>
+    /* VARIABLES DE COLOR */
+    :root {
+        --primary: #7c3aed;
+        --primary-dark: #6d28d9;
+        --success: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+    }
+
+    /* ESTILOS GLOBALES */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f3ff 0%, #e9d5ff 100%);
+        color: var(--gray-800);
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .app-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    /* ENCABEZADO */
+    .app-header {
+        background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .app-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .app-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* NAVEGACIÓN */
+    .main-nav {
+        display: flex;
+        gap: 10px;
+        padding: 20px;
+        background: var(--gray-100);
+        flex-wrap: wrap;
+        border-bottom: 2px solid var(--gray-200);
+    }
+
+    .nav-btn {
+        padding: 10px 20px;
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        color: var(--gray-700);
+    }
+
+    .nav-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
+
+    .nav-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .main-content {
+        padding: 40px;
+    }
+
+    .module {
+        display: none;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .module.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        color: var(--gray-900);
+        margin-bottom: 30px;
+        font-size: 2rem;
+        border-bottom: 3px solid var(--primary);
+        padding-bottom: 15px;
+    }
+
+    /* FORMULARIOS */
+    form {
+        background: var(--gray-50);
+        padding: 30px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    input, select, textarea {
+        padding: 12px;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.1);
+    }
+
+    textarea {
+        grid-column: 1 / -1;
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    form > button {
+        grid-column: 1 / -1;
+    }
+
+    /* BOTONES */
+    button {
+        padding: 12px 24px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-danger {
+        background: var(--danger);
+    }
+
+    .btn-danger:hover {
+        background: #dc2626;
+    }
+
+    .btn-success {
+        background: var(--success);
+    }
+
+    .btn-success:hover {
+        background: #059669;
+    }
+
+    /* LISTAS */
+    .lista-items {
+        display: grid;
+        gap: 20px;
+    }
+
+    .item {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 8px;
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .item:hover {
+        border-color: var(--primary);
+        box-shadow: 0 8px 16px rgba(124, 58, 237, 0.1);
+    }
+
+    .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .item-title {
+        font-weight: 700;
+        color: var(--gray-900);
+        font-size: 1.1rem;
+    }
+
+    .item-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-small {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* TABLA */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th {
+        background: var(--primary);
+        color: white;
+        padding: 12px;
+        text-align: left;
+        font-weight: 700;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid var(--gray-200);
+    }
+
+    tr:hover {
+        background: var(--gray-50);
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--gray-500);
+    }
+
+    .empty-state p {
+        font-size: 1.1rem;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+        .app-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .main-nav {
+            flex-direction: column;
+        }
+
+        .nav-btn {
+            width: 100%;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        form {
+            grid-template-columns: 1fr;
+        }
+
+        table {
+            font-size: 0.9rem;
+        }
+    }
