@@ -1,7 +1,7 @@
 {
   "name": "perenne",
   "version": "1.0.0",
-  "description": "git remote add github https://github.com/lumabaga2-design/Perenne.git\r git remote -v",
+  "description": "Bievenidx!",
   "main": "index.js",
   "dependencies": {
     "accepts": "^2.0.0",
@@ -85,7 +85,10 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
