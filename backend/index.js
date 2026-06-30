@@ -15,12 +15,13 @@ const interactionRoutes = require('./modules/interactions/interaction.routes');
 const searchRoutes = require('./modules/search/search.routes');
 const notificationRoutes = require('./modules/notifications/notification.routes');
 const settingsRoutes = require('./modules/settings/settings.routes');
+const categoryRoutes = require('./modules/categories/category.routes');
+const reviewRoutes = require('./modules/reviews/review.routes');
+
 
 
 
 const app = express();
-
-
 app.use(cors());          // Permite peticiones desde el frontend
 app.use(express.json());  // Permite recibir datos en formato JSON
 
@@ -37,7 +38,8 @@ app.use('/api/interactions', interactionRoutes);
 app.use('/api/search', searchRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/settings', settingsRoutes);
-
+app.use('/api/categories', categoryRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 //  Inicio del servidor 
 
@@ -51,7 +53,7 @@ app.get('/api/test', async (req, res) => {
   }
 });
 
-const SERVER_PORT = process.env.SERVER_PORT || 3000;
+const SERVER_PORT = 8080;
 
 app.listen(SERVER_PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${SERVER_PORT}`);

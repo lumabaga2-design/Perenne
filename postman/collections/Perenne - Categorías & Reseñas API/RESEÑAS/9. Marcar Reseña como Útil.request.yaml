@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/1/helpful
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"review_id": 1}'
+order: 9000

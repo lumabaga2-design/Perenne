@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8080/api/categories/search?query=elect
+method: GET
+queryParams:
+  query: elect
+order: 4000

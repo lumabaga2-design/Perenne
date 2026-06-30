@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/reviews/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"rating": 4, "comment": "Buen producto, podría mejorar en envío"}'
+order: 6000

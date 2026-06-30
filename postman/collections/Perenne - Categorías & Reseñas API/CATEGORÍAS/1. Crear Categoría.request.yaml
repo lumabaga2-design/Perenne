@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/categories
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "Electrónica", "description": "Productos electrónicos y gadgets", "image_url": "https://via.placeholder.com/300", "is_active": true}'
+order: 1000

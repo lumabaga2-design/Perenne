@@ -1,0 +1,9 @@
+$kind: http-request
+url: http://localhost:8080/api/categories/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: '{"name": "Electrónica Premium", "description": "Productos electrónicos de alta gama", "is_active": true}'
+order: 6000
